@@ -6,11 +6,12 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
 router.post('/', (req, res) => {
-    if (!req.body) {
+    console.log("Aur btao")
+    console.log(req.body);
+    if (!req.body){
         res.status(400).send({error: "Email and Password not present in request"});
         return;
     }
-
     const { email, password } = req.body;
 
     if (!email) {

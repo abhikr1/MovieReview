@@ -10,12 +10,12 @@ const userRatings = require('./routes/userRatings');
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-// router.use('/users', users);
+router.use('/users', users);
 
-// router.use('/sessions', sessions);
+router.use('/sessions', sessions);
 
-// router.use('/movies', movies);
+router.use('/movies', movies);
 
-// router.use('/userRatings', userRatings);
+router.use('/userRatings', userRatings);
 
 module.exports = router;

@@ -1,0 +1,34 @@
+
+.img img{
+    width: 80vw;
+    height: 60vh;
+}
+.overview{
+    width: 80vw;
+    font-size: 21px;
+    padding: 20px;
+}
+
+.bgcolor{
+    background-color:rgb(34, 33, 33);
+    color: white;
+}
+
+.overview2{
+    font-size: 18px;
+    padding: 6px;
+}
+
+.details{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#writereview:hover{
+    cursor: pointer;
+    color: yellow;
+}
+
+.reviewText{
+    padding: 7px;
+}

@@ -1,0 +1,56 @@
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-inner{
+    position: relative;
+    padding-left: 32px;
+    padding-top: 0px;
+    width: 100%;
+    max-width: 500px;
+    background-color:black;
+    color: white;
+    z-index: 1;
+
+}
+.popup-inner .close-button{
+    position: relative;
+    top: 16px;
+    right: 16px;
+    color: white;
+    z-index: 1;
+    color: black;
+}
+
+.abc{
+    color: white;
+}
+.reviewPop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviewentity{
+    padding:20px;
+}
+
+.labelInput{
+    height: 50px;
+    width: 300px;
+}
+
+.dropdown{
+    width: 35px;
+    height: 30px;
+}
+
+.ratingList{
+    padding-right: 5px;
+}

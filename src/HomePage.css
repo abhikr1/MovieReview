@@ -1,0 +1,45 @@
+.test{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grid-container1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    background-color:rgb(34, 33, 33);
+    z-index: -1;
+
+  }
+.link{
+  text-decoration: none;
+}
+  .grid-item1 div{
+    font-size: 17px;
+    text-decoration: none !important;
+
+  }
+  .grid-item1 {
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    justify-content: space-around;
+    z-index:  0;
+  }
+    h4{
+        text-decoration:none;
+    }
+
+    .complete{
+      background-color:rgb(34, 33, 33);
+    }
+
+    .homeEntity{
+      padding:2px
+    }

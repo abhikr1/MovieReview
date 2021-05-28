@@ -1,0 +1,12 @@
+/* .banner-img {
+  width: 100%;
+} */
+
+.sliderimg{
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .App{
+    margin-top: 10px;
+}

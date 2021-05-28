@@ -1,0 +1,70 @@
+.header{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: darkgray;
+  height: 50px;
+}
+
+.SearchBar {
+    background-color:black;
+    height: 39px;
+    width: 400px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+  }
+
+  .SearchInput {
+      background-color: whitesmoke;
+    padding-left: 10px;
+    width: 393px;
+    height: 30px;
+    margin: 3px 5px 5px 5px;
+    font-size: 15px;
+    border: none;
+  }
+  
+  .SearchIcon {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .SearchIcon:hover {
+    cursor: pointer;
+  }
+  
+  .SearchIconWrapper {
+    padding-left: 5px;
+    height: 30px;
+    width: 35px;
+  
+  }
+  
+
+  .navbar {
+    /*added flex wrap..change in all*/
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        line-height: 53px;
+        position: sticky;
+        z-index: 999;
+        top: 0;
+        box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
+        background-color: black;
+        margin-top: 0;
+  } 
+
+  .btn{
+    color: white;
+  }
+.btn:hover{
+  cursor: pointer;
+  color: yellow;
+}
+  .companyLogo{
+    height: 40px;
+    width: 40px;
+  }
