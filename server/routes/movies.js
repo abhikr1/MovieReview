@@ -18,6 +18,19 @@ router.get('/', async (req, res) => {
     res.status(500).send({ error: "Internal Server Error" });
   }
 });
+router.get('/search/:movieName', (req,res) => {
+  console.log(req.params.movieName);
+const regex =  new RegExp(`${req.params.movieName}`,'i');
+console.log(regex);
+  Movie.find({original_title : regex }).then(
+    movie => {
+      console.log(movie);
+      res.status(200).send(movie);
+      return;
+    }
+  )
+})
+
 
 router.get('/:movieId', (req, res) => {
   Movie.findOne({ id: req.params.movieId }).then(movie => {

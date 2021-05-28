@@ -32,7 +32,7 @@ class PopUp2 extends Component {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        window.location.reload();
+         window.location.reload();
       });
      
   };
@@ -50,7 +50,7 @@ class PopUp2 extends Component {
         <div className="popup-inner">
           <div>
             <button className="close-button" onClick={this.handleClick}>
-              close
+              X
             </button>
           </div>
           <div className="reviewPop">

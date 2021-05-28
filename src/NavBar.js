@@ -1,16 +1,11 @@
 import React from 'react';
 import './NavBar.css';
 import PopUp from './PopUp.js';
+import SearchBar from './SearchBar.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
-function SearchBar(){
-  return (<div class="SearchBar">
-    <div className="SearchIconWrapper"><img className="SearchIcon" src='/images/search-24px.svg' alt='searchIcon'/></div>
-    <input className="SearchInput" type="text" placeholder="Search for products, brands and more..."></input>
 
-    </div>);
-}
 function LogoutButton(props){
   return (
     <button onClick={props.onClick}>
