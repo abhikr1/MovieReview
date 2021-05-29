@@ -68,7 +68,9 @@
     height: 40px;
     width: 40px;
   }
-
+.companyLogo img{
+  border-radius: 500px;
+}
   .search{
     width: 250vw;
   }

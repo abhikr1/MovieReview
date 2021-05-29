@@ -22,19 +22,21 @@ router.post('/:movieId', (req, res) => {
     );
     console.log(isPresent)
     if(isPresent){
-      res.status(404).send({message : "Rating already present"});  
+      res.status(404).send({error : "Rating already present"});  
       
       return;
     }
     //movies.vote_average = (movies.vote_average /movies.vote_count+1) + (user_rating / movies.vote_count+1);
-    movies.vote_average = (movies.vote_average * movies.vote_count + user_rating)/movies.vote_count+1;
+    console.log(movies.vote_average);
+    console.log(movies.vote_count);
+    console.log(user_rating)
+    movies.vote_average = ((movies.vote_average * movies.vote_count) + user_rating)/(movies.vote_count+1);
+    console.log(movies.vote_average);
     movies.vote_average = Math.round(movies.vote_average * 100) / 100;
-    console.log("IJportjhsdbkl")
-    console.log(movies.vote_average)
     movies.vote_count = movies.vote_count+1;
     movies.reviews.push({userId, rating : user_rating, review: user_review });
     movies.save().then(() => {
-      res.status(204).send({message : "User Review added"});
+      res.status(200).send({message : "Review added"});
     }).catch(() => {
       res.status(400).send({error : "Review mot added"});
     })

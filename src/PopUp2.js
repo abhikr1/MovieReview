@@ -6,6 +6,8 @@ class PopUp2 extends Component {
     super(props);
     this.state = {
       value: "",
+      review: "",
+      errormessage : ""
     };
   }
   handleClick = () => {
@@ -13,25 +15,75 @@ class PopUp2 extends Component {
   };
   onInput = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+    if(event.target.value){
+        this.setState({errormessage: ""})
+    }
     console.log(event.target.value);
+    
+        
   };
 
   submitReview = (e) => {
     e.preventDefault();
-    console.log("Hello inside Submit Click");
-    fetch(this.props.fetchApi, {
-      method: "POST",
-      body: JSON.stringify({
-        user_rating: this.state.value,
-        user_review: this.state.review,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => window.location.reload())
-     
-  };
+    if(this.state.value && this.state.review){
+        console.log("Hello inside Submit Click");
+        console.log(this.state.value);
+        console.log(this.state.review)
+        fetch(this.props.fetchApi, {
+          method: "POST",
+          body: JSON.stringify({
+            user_rating: this.state.value,
+            user_review: this.state.review,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            console.log(response)
+            if(response.error)
+            this.setState({errormessage : response.error})
+            else
+            window.location.reload();
+        })
+    }
+    else{
+        this.setState({errormessage: "Review and Rating both are mandatory"})
+    }
+}
+
+
+    //           response.json())         
+    //         .then((json) => {
+    //             if(json.error)
+    //             this.setState({errormessage : json.error})
+    //             else{
+    //                 //window.location.reload();
+    //                 console.log("Reload kroooo")
+    //             }
+    //         })
+    // }
+
+//     .then((response) =>
+//     // if(response.ok){
+//     //     window.location.reload();
+//     //     return;
+//     // }
+//   response.json())
+  
+// .then((json) => {
+//     if(json.error)
+//     this.setState({errormessage : json.error})
+//     else
+//     window.location.reload();
+//     console.log(json)})
+// }
+
+
+
+
+     // .then((response) => window.location.reload())
   togglePop = () => {
     this.setState({
       openPopup: !this.state.openPopup,
@@ -39,8 +91,6 @@ class PopUp2 extends Component {
   };
 
   render() {
-    console.log("inside popup222");
-    console.log(this.props);
     return (
       <div className="popup1">
         <div className="popup-inner1">
@@ -53,7 +103,7 @@ class PopUp2 extends Component {
           <form>
             <br></br>
 
-            <div className="reviewtext">Write a review</div>
+            <div className="reviewtext">Rate and write a review</div>
             <hr></hr>
             <div className="reviewentity">
               <input
@@ -74,11 +124,17 @@ class PopUp2 extends Component {
                   name="value"
                   className= "dropdown"
                 >
+                 <option value="value" hidden selected>Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </select>
               </label>
             </div>
@@ -91,7 +147,9 @@ class PopUp2 extends Component {
               onClick={this.submitReview}
               value="Submit Review"
             />
-          </div>
+            </div>
+            {this.state.errormessage ? <div className="errorReview">{this.state.errormessage}</div> : null}
+          
         </div>
         </div>
       </div>

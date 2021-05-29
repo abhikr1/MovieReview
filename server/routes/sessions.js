@@ -20,33 +20,31 @@ router.post('/', (req, res) => {
     const { email, password } = req.body;
 
     if (!email) {
-        res.status(400).send({error: "Email not present in request"});
+        res.status(400).send({error: "e-mail field cannot be empty"});
         return;
     }
 
     if (!password) {
-        res.status(400).send({error: "Password not present in request"});
+        res.status(400).send({error: "Password field cannot be empty"});
         return;
     }
 
     UserCredential.findOne({ email }).then(user => {
         if (!user) {
-            res.status(400).send({error: "User not signed up"});
+            res.status(400).send({error: "SignUp to continue"});
             return;
         }
 
         const match = bcrypt.compareSync(password, user.password);
 
         if (!match) {
-            res.status(400).send({error: "Incorrect email or password"});
+            res.status(400).send({error: "Enter a valid credentials"});
             return;
         }
 
         req.session.userId = user._id;
-        console.log("Iske andar")
 
-        res.status(200).send({error: "User signed up"});
-        console.log("ab idhr")
+        res.status(200).send({message: "User signed up"});
         return;
         
 

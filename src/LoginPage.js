@@ -6,7 +6,8 @@ class LoginPage extends React.Component{
         super(props);
         this.state = {
             email:'',
-            password:''
+            password:'',
+            errormessage:''
         };
     }
         componentDidMount() {
@@ -24,8 +25,31 @@ class LoginPage extends React.Component{
                 headers : {
                     'Content-type': 'application/json; charset=UTF-8'
                 }
-            }).then(response => window.location.reload());
+            }).then((response) =>
+                // if(response.ok){
+                //     window.location.reload();
+                //     return;
+                // }
+              response.json())
+              
+            .then((json) => {
+                if(json.error)
+                this.setState({errormessage : json.error})
+                else
+                window.location.reload();
+                console.log(json)})
         }
+        
+
+        // componentDidMount() {
+        //     fetch(`/api/movies?page=0`)
+        //       .then((response) => response.json())
+        //       .then((response) => {
+        //         //console.log(response.movies);
+        //         this.setState({ totalPages: response.totalPages });
+        //         this.setState({ movies: response.movies });
+        //       });
+        //   }
 
 
 
@@ -42,29 +66,42 @@ class LoginPage extends React.Component{
             // .then(response => 
             //     console.log(response);
             // })
-            }).then(response => console.log(response.json()));
-        }
+            }).then((response) =>
+            // if(response.ok){
+            //     window.location.reload();
+            //     return;
+            // }
+          response.json())
+          
+        .then((json) => {
+            if(json.error)
+            this.setState({errormessage : json.error})
+            else
+            
+            this.setState({errormessage : "Successfully signed up! Please LogIn"})
+    })
+}
             render() {
 
               return (
-                <div class="formContainer">
+                <div class="formContainer1">
                 <form>
-                    <h2>Login</h2>
-                    <hr></hr>
-                    <div className="entries">
+                    <div class = "loginheading1">Login/SignUp</div>
+                    
+                    <div className="entries1">
                     <input
-                        className="email"
+                        className="email1"
                         type="email"
                         required="required"
-                        placeholder="abhikr1@gmail.com"
+                        placeholder="Enter E-mail"
                         name="email"
                         onInput={this.onInput} 
                         value={this.state.email}
                     />
                     </div>
-                    <div className="entries">
+                    <div className="entries1">
                     <input
-                        className="password"
+                        className="password1"
                         type="password"
                         required="required"
                         placeholder="Enter password.."
@@ -74,17 +111,18 @@ class LoginPage extends React.Component{
                     />
                     </div>
                     </form>
-                    <div className = "entries">
+                    <div className = "entries1">
                     <input type ="submit" className="submitBtn" onClick={this.logInClick}
                         value = "Login"
                     />
                     </div>
                     
-                    <div className = "entries">
+                    <div className = "entries1">
                     <input type ="submit" className="submitBtn" onClick={this.signUpClick}
                         value = "SignUp"
                     />
                     </div>
+                    {this.state.errormessage ? <div className = "errorMessage">{this.state.errormessage}</div> : null}
                 </div>
                 )    
         };

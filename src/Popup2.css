@@ -14,11 +14,12 @@
     padding-top: 0px;
     width: 100%;
     max-width: 500px;
-    background-color:rgb(34, 33, 33);
+    background-color:black;
     color: white;
     z-index: 1;
-
 }
+
+
 .popup-inner1 .close-button1{
     position: relative;
     top: 16px;
@@ -27,7 +28,10 @@
     z-index: 1;
     color: black;
 }
-
+.close-button1:hover{
+    background-color: yellow;
+    cursor: pointer;
+}
 .abc{
     color: white;
 }
@@ -40,17 +44,40 @@
 .reviewentity{
     padding:20px;
 }
-
+.reviewentitySubmit{
+    padding: 20px;
+}
 .labelInput{
-    height: 50px;
+    height: 35px;
     width: 300px;
+    font-size: 15px;
 }
 
 .dropdown{
-    width: 35px;
-    height: 30px;
+    width: 60px;
+    height: 25px;
 }
 
 .ratingList{
     padding-right: 5px;
+}
+
+.submitBtn{
+    font-size: 15px;
+}
+
+.reviewtext{
+    font-size: 28px;
+    
+}
+
+.errorReview{
+    padding:20px;
+    color: red;
+}
+
+@media screen and (max-width: 1100) {
+    .reviewentity.submitBtn{
+        font-size: xx-small;
+    }
 }

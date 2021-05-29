@@ -3,6 +3,7 @@ import "./HomePage.css";
 import NavBar from "./NavBar.js";
 import Banner from "./Banner.js";
 import MovieList from './MovieList.js'
+import Footer from './Footer.js'
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +39,8 @@ getSearchresult = (movieresults) => {
           <Banner />
 
             <MovieList movies={this.state.movies}/>
+            <hr className="footer-hr"/>
+            <Footer/>
           </div>
       </div>
     );

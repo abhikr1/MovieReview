@@ -4,6 +4,7 @@ import "./MovieDetailPage.css";
 import PopUp2 from "./PopUp2.js";
 import PopUp from "./PopUp.js";
 import NavBar from "./NavBar";
+import Footer from "./Footer.js"
 class MovieDetailPage extends React.Component {
   constructor(props) {
     super(props);
@@ -89,8 +90,7 @@ class MovieDetailPage extends React.Component {
         </div>
         <div>
         <iframe
-          width="1150vw"
-          height="400vh"
+          className="youtube"
           src={url}
         titile = "a" ></iframe>
         </div>
@@ -142,6 +142,8 @@ class MovieDetailPage extends React.Component {
         ))}
         </div>
         </div>
+        <hr className="footer-hr"/>
+            <Footer/>
       </div>
     );
   }
