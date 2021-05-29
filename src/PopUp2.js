@@ -145,7 +145,7 @@ class PopUp2 extends Component {
               type="submit"
               className="submitBtn"
               onClick={this.submitReview}
-              value="Submit Review"
+              value="Submit"
             />
             </div>
             {this.state.errormessage ? <div className="errorReview">{this.state.errormessage}</div> : null}
