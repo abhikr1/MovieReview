@@ -8,16 +8,15 @@ router.get('/ifexist', (req,res) => {
     if(req.session.userId)
         res.status(200).send({message : "User exists"});
     else
-        res.send(200).send({message: "User does not exist"});
+        res.status(400).send({message: "User does not exist"});
 })
 
 router.post('/', (req, res) => {
+    console.log("Iske andar")
     if (!req.body) {
         res.status(400).send({error: "Email and Password not present in request"});
         return;
     }
-    console.log("Helllllllllll")
-    console.log(req.body);
     const { email, password } = req.body;
 
     if (!email) {
@@ -44,8 +43,13 @@ router.post('/', (req, res) => {
         }
 
         req.session.userId = user._id;
+        console.log("Iske andar")
 
-        res.status(204).send({message:"Login Successful"});
+        res.status(200).send({error: "User signed up"});
+        console.log("ab idhr")
+        return;
+        
+
     }).catch((e) => {
         //console.log(e);
         res.status(500).send({ error: "Internal Server Error" });
@@ -54,7 +58,7 @@ router.post('/', (req, res) => {
 
 router.delete('/me', (req, res) => {
     delete req.session.userId;
-    res.status(204).send();
+    res.status(204).send({message:"Deleted"});
 });
 
 module.exports = router;

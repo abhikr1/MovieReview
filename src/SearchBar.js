@@ -12,15 +12,16 @@ class SearchBar extends React.Component {
             
         }
           onInput = event => {
+            if(event.target.value){
             console.log(`/api/movies/search/${event.target.value}`)
-            // this.setState({ [event.target.name]: event.target.value });
             fetch(`/api/movies/search/${event.target.value}`)
-            // .then((response) => response.json())
-            // .then((response) => {
-            //   console.log(response)
-            // });
             .then((response) => response.json())
-            .then(response => console.log(response));
+            .then(response =>  this.props.searchmovieresult(response));
+            }
+            else{
+                this.props.searchmovieresult([])
+            }
+           
         }
 
     render(){

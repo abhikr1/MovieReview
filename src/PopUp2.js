@@ -29,11 +29,7 @@ class PopUp2 extends Component {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-         window.location.reload();
-      });
+      .then((response) => window.location.reload())
      
   };
   togglePop = () => {
@@ -46,10 +42,10 @@ class PopUp2 extends Component {
     console.log("inside popup222");
     console.log(this.props);
     return (
-      <div className="popup">
-        <div className="popup-inner">
+      <div className="popup1">
+        <div className="popup-inner1">
           <div>
-            <button className="close-button" onClick={this.handleClick}>
+            <button className="close-button1" onClick={this.handleClick}>
               X
             </button>
           </div>

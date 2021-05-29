@@ -1,4 +1,4 @@
-.popup{
+.popup1{
     position: fixed;
     top: 0;
     left: 0;
@@ -8,18 +8,18 @@
     justify-content: center;
     align-items: center;
 }
-.popup-inner{
+.popup-inner1{
     position: relative;
     padding-left: 32px;
     padding-top: 0px;
     width: 100%;
     max-width: 500px;
-    background-color:black;
+    background-color:rgb(34, 33, 33);
     color: white;
     z-index: 1;
 
 }
-.popup-inner .close-button{
+.popup-inner1 .close-button1{
     position: relative;
     top: 16px;
     right: 16px;

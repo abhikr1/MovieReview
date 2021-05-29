@@ -82,15 +82,15 @@ class MovieDetailPage extends React.Component {
     }
     return (
       <div class = "bgcolor">
-          <NavBar/>
+          <NavBar displaySearch = 'false'/>
         <div class="details">
         <div>
         <h1>{this.state.movie.original_title}</h1>
         </div>
         <div>
         <iframe
-          width="1150"
-          height="400"
+          width="1150vw"
+          height="400vh"
           src={url}
         titile = "a" ></iframe>
         </div>

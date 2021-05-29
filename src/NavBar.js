@@ -64,10 +64,13 @@ signOut = () => {
   }).then(res => {
     if (res.status === 204) {
       this.setState({signedUp: false})
+      window.location.reload();
     }
   });
 }
-
+searchmovieresult = (movieresults) => {
+  this.props.getSearchresult(movieresults);
+}
 componentDidMount(){
   console.log("Indide component did mount of nav bar .js")
   fetch(`/api/sessions/ifexist/`).then(
@@ -106,9 +109,14 @@ componentDidMount(){
     return (
           <div class = "navbar">
             <div class="companyLogo" onClick={this.logoclick}><img src = "/images/logo3.png" width = "40" height = "40" alt =""/></div>
+            {(this.props.displaySearch) ?
             <div>
-              <SearchBar/>
+              </div>
+            : 
+            <div>
+              <SearchBar searchmovieresult={this.searchmovieresult}/>
             </div>
+              }
             <div>
             
                 {loginInfo}

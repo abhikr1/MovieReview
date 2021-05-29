@@ -24,12 +24,9 @@ class LoginPage extends React.Component{
                 headers : {
                     'Content-type': 'application/json; charset=UTF-8'
                 }
-            }).then(response => response.json())
-            .then(response => {
-                window.location.reload();
-                console.log(response);
-            })
+            }).then(response => window.location.reload());
         }
+
 
 
         signUpClick = (e) => {
@@ -41,10 +38,11 @@ class LoginPage extends React.Component{
                 headers : {
                     'Content-type': 'application/json; charset=UTF-8'
                 }
-            }).then(response => response.json())
-            .then(response => {
-                console.log(response);
-            })
+            // }).then(response => response.json())
+            // .then(response => 
+            //     console.log(response);
+            // })
+            }).then(response => console.log(response.json()));
         }
             render() {
 
