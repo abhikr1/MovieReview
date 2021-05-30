@@ -12,7 +12,6 @@ router.get('/ifexist', (req,res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log("Iske andar")
     if (!req.body) {
         res.status(400).send({error: "Email and Password not present in request"});
         return;
@@ -38,7 +37,7 @@ router.post('/', (req, res) => {
         const match = bcrypt.compareSync(password, user.password);
 
         if (!match) {
-            res.status(400).send({error: "Enter a valid credentials"});
+            res.status(400).send({error: "Enter valid credentials"});
             return;
         }
 
